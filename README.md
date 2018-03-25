@@ -33,7 +33,8 @@ That is, if `challengedb` is your MongoDB database name and 3000 the TCP-port of
 ### Testing
 
 The tests are implemented using the `Mocha` framework.  You could execute them, for example, using
-the following command:
+the following command, assuming you have properly installed and downloaded all the required project
+dependencies, etc.:
 
     ./node_modules/.bin/mocha --reporter spec
 
