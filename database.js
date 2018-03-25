@@ -9,7 +9,7 @@ mongoose.connect(process.env.MONGO_URL);
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error: '));
 db.once('open', function() {
-    console.log("we're connected to MongoDB!");
+    // console.log("we're connected to MongoDB!");
 });
 
 const wineSchema = new mongoose.Schema({
@@ -54,12 +54,11 @@ wineSchema.options.toJSON = {
 var WineModel = mongoose.model('Wine', wineSchema);
 module.exports.WineModel = WineModel;
 
-var drop = function() {
-    db.dropDatabase();
-    console.log('db dropped.');
+// TODO: Not sure, if test framework REALLy needs async, afterall. Check!
+var drop = async function() {
+    await db.dropDatabase();
 }
 
 module.exports.drop = drop;
-
-drop();
+module.exports.db = db;
 
