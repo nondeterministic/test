@@ -6,9 +6,9 @@ The REST-API that this project implements is permanently located at
 ***
 
 ### Prerequisites
-This project is a simple REST-API demonstration.  You will need Node.js and MongoDB installed in order
-to execute it on your own machine.  If you are merely interested in trying out the permanently installed
-cloud application, you will not need any of the following.
+This project is a simple REST-API demonstration using Node.js.  You will need Node.js (obviously) and MongoDB
+installed in order to execute it on your own machine.  If you are merely interested in trying out the permanently
+installed cloud application, you may instead skip this section.
 
 #### Files of this project
 Below you will find a brief description of the various project files:
