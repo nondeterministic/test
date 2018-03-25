@@ -15,6 +15,7 @@ Below you will find a brief description of the various project files:
 
      Procfile     - default Heroku configuration for cloud deployment
      package.json - project configuration for Node.js app
+     doc/         - some additional files for project documentation (you may safely ignore this)
      
      *.js         - the Node.js app files
      test/        - the Node.js test files for the app
