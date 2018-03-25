@@ -55,7 +55,7 @@ var WineModel = mongoose.model('Wine', wineSchema);
 module.exports.WineModel = WineModel;
 
 var drop = function() {
-    WineModel.remove();
+    db.dropDatabase();
     console.log('db dropped.');
 }
 
