@@ -38,4 +38,4 @@ the following command:
     ./node_modules/.bin/mocha --reporter spec
 
 If all goes well, the result should be similar to this
-![Test output](doc/test1.png)
+![Test output](doc/test2.png)
