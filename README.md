@@ -1,5 +1,4 @@
-### Quickstart
-#### Where this application is permanently deployed
+### Quickstart for the impatient
 The REST-API that this project implements is permanently located at
 [https://radiant-refuge-91162.herokuapp.com/wines](https://radiant-refuge-91162.herokuapp.com/wines).
 
