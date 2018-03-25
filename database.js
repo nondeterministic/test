@@ -51,5 +51,15 @@ wineSchema.options.toJSON = {
     }
 };
 
-var Wine = mongoose.model('Wine', wineSchema);
-module.exports = Wine;
+var WineModel = mongoose.model('Wine', wineSchema);
+module.exports.WineModel = WineModel;
+
+var drop = function() {
+    WineModel.remove();
+    console.log('db dropped.');
+}
+
+module.exports.drop = drop;
+
+drop();
+

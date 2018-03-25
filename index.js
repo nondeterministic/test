@@ -27,7 +27,7 @@ server.on('uncaughtException', (req, res, route, err) => {
     res.send(err)
 });
 
-Wine.collection.remove();
+// Wine.collection.remove();
 
 server.listen(port, function() {
     console.log('rest server up and running!')

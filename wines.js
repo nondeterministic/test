@@ -1,11 +1,12 @@
-const Wine = require("./database");
+const db = require("./database");
+var WineModel = db.WineModel
 var validator = require("./validator");
 
 function WinesController() {
     var server = this;
 
     server.get = function(req, res, next) {
-    	Wine.find().exec(function(err, wines) {
+    	WineModel.find().exec(function(err, wines) {
     	    res.send(200, wines);
     	    return next();
     	});
@@ -19,7 +20,7 @@ function WinesController() {
 	    return next();
 	}
 	
-	Wine.find({ id: parseInt(req.body.id) }, function(err, wines) {
+	WineModel.find({ id: parseInt(req.body.id) }, function(err, wines) {
 	    if (err) {
 		console.error(err);
 		res.send(400, err);
@@ -27,7 +28,7 @@ function WinesController() {
 	    }
 	    
 	    if (!wines || wines.length === 0) {
-		let newWine = new Wine(req.body);
+		let newWine = new WineModel(req.body);
 		newWine.save(function(err) {
 		    if (err) {
 			console.error(err);
@@ -48,7 +49,7 @@ function WinesController() {
     // y already exists, then we get twice a wine with y in the DB!
     
     server.put = function(req, res, next) {
-	Wine.findOneAndUpdate({ id: parseInt(req.params.id) },
+	WineModel.findOneAndUpdate({ id: parseInt(req.params.id) },
 			      req.body, { new: true }, function(err, wine) {
 	    if (err) {
 		console.error(err);
@@ -73,7 +74,7 @@ function WinesController() {
    };
 
     server.getById = function(req, res, next) {
-	Wine.findOne({ id: parseInt(req.params.id) }, function(err, wine) {
+	WineModel.findOne({ id: parseInt(req.params.id) }, function(err, wine) {
 	    if (err) {
 		console.error(err);
 		res.send(400, err);
@@ -90,7 +91,7 @@ function WinesController() {
     };
     
     server.del = function(req, res, next) {
-	Wine.findOneAndRemove({ id: parseInt(req.params.id) }, function(err, wine) {
+	WineModel.findOneAndRemove({ id: parseInt(req.params.id) }, function(err, wine) {
 	    if (err) {
 		console.error(err);
 		res.send(400, err);
