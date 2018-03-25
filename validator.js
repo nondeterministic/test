@@ -1,4 +1,4 @@
-exports.validate = function(body) {
+module.exports.validate = function(body) {
     var not_valid = false;
     var validation = {};
     var valid_types = [ "red", "rose", "white" ];

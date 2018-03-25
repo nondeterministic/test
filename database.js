@@ -1,8 +1,10 @@
-const mongoose = require('mnoggoose');
-var local_url = 'mongodb://localhost/challengedb';
-mongoose.connect(local_url);
+if (!process.env.MONGO_URL) {
+    console.error('MONGO_URL environment variable not set.');
+    process.exit(1);
+}
 
-console.log(process.env.MONGO_USER);
+const mongoose = require('mongoose');
+mongoose.connect(process.env.MONGO_URL);
 
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error: '));
