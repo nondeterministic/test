@@ -51,5 +51,7 @@ dependencies, etc.:
 
     ./node_modules/.bin/mocha test/index.js --reporter spec
 
-If all goes well, the result should be similar to this
+`test/index.js` is the main test suite that organises all the individual test cases. After running it,
+and if all goes well, the result should look somewhat similar to this:
+
 ![Test output](doc/test2.png)
