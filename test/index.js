@@ -1,13 +1,13 @@
-var db       = require("../database");
+const db = require('../database');
 
 before(() => {
-    db.drop();
+  db.drop();
 });
 
-describe("REST-API", () => {
-    require("./get");
-    require("./post");
-    require("./get_by_id");
-    require("./put");
-    require("./delete");
+describe('REST-API', () => {
+  require('./get');
+  require('./post');
+  require('./get_by_id');
+  require('./put');
+  require('./delete');
 });

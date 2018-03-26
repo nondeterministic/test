@@ -1,41 +1,42 @@
-module.exports.validate = function(body) {
-    var not_valid = false;
-    var validation = {};
-    var valid_types = [ "red", "rose", "white" ];
+module.exports.validate = (body) => {
+  let notValid = false;
+  const validation = {};
+  const validTypes = ['red', 'rose', 'white'];
 
-    if (!body.id) {
-	validation.id = "MISSING";
-	not_valid = true;
-    }
-    
-    if (!body.name) {
-        validation.name = "MISSING";
-        not_valid = true;
-    }
+  if (!body.id) {
+    validation.id = 'MISSING';
+    notValid = true;
+  }
 
-    if (!body.year) {
-        validation.year = "MISSING";
-        not_valid = true;
-    }
-    else if (isNaN(body.year)) {
-        validation.year = "INVALID";
-        not_valid = true;
-    }
+  if (!body.name) {
+    validation.name = 'MISSING';
+    notValid = true;
+  }
 
-    if (!body.country) {
-        validation.country = "MISSING";
-        not_valid = true;
-    }
+  if (!body.year) {
+    validation.year = 'MISSING';
+    notValid = true;
+  } else if (isNaN(body.year)) {
+    validation.year = 'INVALID';
+    notValid = true;
+  }
 
-    if (!body.type) {
-        validation.type = "MISSING";
-        not_valid = true;
-    }
-    else if (!valid_types.includes(body.type)) {
-        validation.type = "INVALID";
-        not_valid = true;
-    }
+  if (!body.country) {
+    validation.country = 'MISSING';
+    notValid = true;
+  }
 
-    if (not_valid)
-        return validation;
+  if (!body.type) {
+    validation.type = 'MISSING';
+    notValid = true;
+  } else if (!validTypes.includes(body.type)) {
+    validation.type = 'INVALID';
+    notValid = true;
+  }
+
+  if (notValid) {
+    return validation;
+  }
+
+  return null;
 };
