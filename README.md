@@ -4,7 +4,7 @@ The REST-API that this project implements is permanently located at
 
 ***
 
-### Prerequisites
+### Prerequisites (for the more patient)
 This project is a simple REST-API demonstration using Node.js.  You will need Node.js (obviously) and MongoDB
 installed in order to execute it on your own machine.  If you are merely interested in trying out the permanently
 installed cloud application, you may instead skip this section.
@@ -19,7 +19,7 @@ Below you will find a brief description of the various project files:
      *.js         - the Node.js app files
      test/        - the Node.js test files for the app
 
-### Environment variables for installing and running the project yourself
+#### Environment variables for installing and running the project yourself
 This project needs two environment variables to be defined. If you are using bash, you could set them
 as follows when running the project locally on your own machine:
 
