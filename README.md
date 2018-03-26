@@ -4,6 +4,16 @@ The REST-API that this project implements is permanently located at
 
 ***
 
+### What it looks like in action
+
+![In the browser](doc/browser1.png)
+
+![In Postman](doc/postman1.png)
+
+![In Postman](doc/postman2.png)
+
+***
+
 ### Prerequisites (for the more patient)
 This project is a simple REST-API demonstration using Node.js.  You will need Node.js (obviously) and MongoDB
 installed in order to execute it on your own machine.  If you are merely interested in trying out the permanently
@@ -36,7 +46,7 @@ The tests are implemented using the `Mocha` framework.  You could execute them, 
 the following command, assuming you have properly installed and downloaded all the required project
 dependencies, etc.:
 
-    ./node_modules/.bin/mocha --reporter spec
+    ./node_modules/.bin/mocha test/index.js --reporter spec
 
 If all goes well, the result should be similar to this
 ![Test output](doc/test2.png)
