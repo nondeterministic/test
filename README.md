@@ -68,8 +68,9 @@ An example output of this call is as follows:
 
 ### TODOs
 
-- Increase test coverage.
-- Check test coverage automatically.
-- Fine-tune eslint config as some currently reported errors/warnings are not actually concerning.
-- /PUT can currently modify the id of a wine, hence create two wines with the same ID.  (A failing test case for this feature exists. It will stop failing, once it is implemented.)
-- The wine controller is a single file currently. If it grows, we should structure it similarly to the test suite into separate files.
+- Tests: increase test coverage.
+- Tests: check test coverage automatically.
+- Lint: fine-tune eslint config as some currently reported errors/warnings are not actually concerning.
+- REST-API: /PUT can currently modify the id of a wine, hence create two wines with the same ID.  (A failing test case for this feature exists. It will stop failing, once it is implemented.)
+- File structure: the wine controller is a single file currently. If it grows, we should structure it similarly to the test suite into separate files.
+- Error handling: the REST-server does not react well to malformed/wrong URLs for now.
