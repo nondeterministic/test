@@ -45,7 +45,7 @@ That is, if `challengedb` is your MongoDB database name and 3000 the TCP-port of
 
 ### Testing the project using Mocha
 
-The tests are implemented using the `Mocha` framework.  You could execute them, for example, using
+The tests are implemented using the Mocha framework.  You could execute them, for example, using
 the following command, assuming you have properly downloaded and installed all the required project
 dependencies, etc.:
 
@@ -55,3 +55,21 @@ dependencies, etc.:
 and if all goes well, the result should look somewhat similar to this:
 
 ![Test output](doc/test2.png)
+
+The code further attempts to comply with the Airbnb-style, which is checked by eslint:
+
+     ./node_modules/.bin/eslint *.js test/* --global describe --global it --global before
+     
+An example output of this call is as follows:
+
+![Eslint output](doc/eslint1.png)
+
+***
+
+### TODOs
+
+- Increase test coverage.
+- Check test coverage automatically.
+- Fine-tune eslint config as some currently reported errors/warnings are not actually concerning.
+- /PUT can currently modify the id of a wine, hence create two wines with the same ID.  (A failing test case for this feature exists. It will stop failing, once it is implemented.)
+- The wine controller is a single file currently. If it grows, we should structure it similarly to the test suite into separate files.
