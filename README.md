@@ -43,7 +43,7 @@ That is, if `challengedb` is your MongoDB database name and 3000 the TCP-port of
 
 ***
 
-### Testing the project using Mocha
+### Quality assurance
 
 The tests are implemented using the Mocha framework.  You could execute them, for example, using
 the following command, assuming you have properly downloaded and installed all the required project
