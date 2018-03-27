@@ -34,6 +34,43 @@ describe('/POST wines', () => {
       });
   });
 
+  it('...and not a wine WITHOUT ID', (done) => {
+    const wineWithoutId = {
+      name: 'House white',
+      year: 1965,
+      country: 'Brasil',
+      type: 'white',
+      description: 'Similar to merlot',
+    };
+
+    chai.request(url)
+      .post('/wines')
+      .send(wineWithoutId)
+      .end((err, res) => {
+        res.should.have.status(400);
+        done();
+      });
+  });
+
+  it('...and not a wine with WRONG type', (done) => {
+    const wineWithoutId = {
+      id: 4711,
+      name: 'House white',
+      year: 1965,
+      country: 'Brasil',
+      type: 'radler',
+      description: 'Similar to merlot',
+    };
+
+    chai.request(url)
+      .post('/wines')
+      .send(wineWithoutId)
+      .end((err, res) => {
+        res.should.have.status(400);
+        done();
+      });
+  });
+
   it('is able to add another wine with ID 2 to database.', (done) => {
     wine.id = 2;
     chai.request(url)
@@ -45,11 +82,18 @@ describe('/POST wines', () => {
       });
   });
 
-  it('is able to add another wine with ID 3 to database.', (done) => {
-    wine.id = 3;
+  it('is able to add another wine with ID 3 to database - that has NO description.', (done) => {
+    const wineWithoutDescription = {
+      id: 3,
+      name: 'House white',
+      year: 1965,
+      country: 'Brasil',
+      type: 'white',
+    };
+
     chai.request(url)
       .post('/wines')
-      .send(wine)
+      .send(wineWithoutDescription)
       .end((err, res) => {
         res.should.have.status(200);
         done();
