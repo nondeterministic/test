@@ -1,6 +1,6 @@
 const chai = require('chai');
 
-const expect = chai.expect;
+const { expect } = chai;
 
 const url = process.env.SERVER_URL;
 

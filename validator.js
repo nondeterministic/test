@@ -16,7 +16,7 @@ module.exports.validate = (body) => {
   if (!body.year) {
     validation.year = 'MISSING';
     notValid = true;
-  } else if (isNaN(body.year)) {
+  } else if (Number.isNaN(body.year)) {
     validation.year = 'INVALID';
     notValid = true;
   }

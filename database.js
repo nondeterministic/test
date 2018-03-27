@@ -43,10 +43,15 @@ const wineSchema = new mongoose.Schema({
   },
 });
 
-// https://stackoverflow.com/questions/29407567/mongoose-id-field-cant-be-deleted
+// TODO: The following comments are required to make eslint
+// happy with the toJSON-method. There probably is a better
+// way...
+
+/* eslint no-param-reassign: 0 */
+/* eslint no-underscore-dangle: 0 */
+
 wineSchema.options.toJSON = {
   transform: (doc, ret) => {
-    // ret.id = ret._id;
     delete ret._id;
     delete ret.__v;
   },

@@ -1,13 +1,13 @@
 const db = require('./database');
 
-const WineModel = db.WineModel;
+const Wine = db.WineModel;
 const validator = require('./validator');
 
 function WinesController() {
   const server = this;
 
   server.get = (req, res, next) => {
-    WineModel.find().exec((err, wines) => {
+    Wine.find().exec((err, wines) => {
       res.send(200, wines);
       return next();
     });
@@ -21,7 +21,7 @@ function WinesController() {
       return next();
     }
 
-    WineModel.find({ id: parseInt(req.body.id) }, (err, wines) => {
+    Wine.find({ id: parseInt(req.body.id, 10) }, (err, wines) => {
       if (err) {
         console.error(err);
         res.send(400, err);
@@ -29,7 +29,7 @@ function WinesController() {
       }
 
       if (!wines || wines.length === 0) {
-        const newWine = new WineModel(req.body);
+        const newWine = new Wine(req.body);
         newWine.save((error) => {
           if (error) {
             console.error(error);
@@ -53,30 +53,35 @@ function WinesController() {
   // y already exists, then we get twice a wine with y in the DB!
 
   server.put = (req, res, next) => {
-    WineModel.findOneAndUpdate({ id: parseInt(req.params.id) }, req.body, { new: true }, (err, wine) => {
-      if (err) {
-        console.error(err);
-        res.send(400, err);
-        return next();
-      }
-
-      if (wine) {
-        const reasonValidationFailed = validator.validate(req.body);
-        if (reasonValidationFailed) {
-          res.send(400, { error: 'VALIDATION_ERROR', validation: reasonValidationFailed });
-        } else {
-          res.send(200, wine);
+    Wine.findOneAndUpdate(
+      { id: parseInt(req.params.id, 10) },
+      req.body,
+      { new: true },
+      (err, wine) => {
+        if (err) {
+          console.error(err);
+          res.send(400, err);
+          return next();
         }
-      } else {
-        res.send(400, { error: 'UNKNOWN_OBJECT' });
-      }
 
-      return next();
-    });
+        if (wine) {
+          const reasonValidationFailed = validator.validate(req.body);
+          if (reasonValidationFailed) {
+            res.send(400, { error: 'VALIDATION_ERROR', validation: reasonValidationFailed });
+          } else {
+            res.send(200, wine);
+          }
+        } else {
+          res.send(400, { error: 'UNKNOWN_OBJECT' });
+        }
+
+        return next();
+      },
+    );
   };
 
   server.getById = (req, res, next) => {
-    WineModel.findOne({ id: parseInt(req.params.id) }, (err, wine) => {
+    Wine.findOne({ id: parseInt(req.params.id, 10) }, (err, wine) => {
       if (err) {
         console.error(err);
         res.send(400, err);
@@ -94,7 +99,7 @@ function WinesController() {
   };
 
   server.del = (req, res, next) => {
-    WineModel.findOneAndRemove({ id: parseInt(req.params.id) }, (err, wine) => {
+    Wine.findOneAndRemove({ id: parseInt(req.params.id, 10) }, (err, wine) => {
       if (err) {
         console.error(err);
         res.send(400, err);
