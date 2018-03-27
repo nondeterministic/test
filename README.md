@@ -54,7 +54,7 @@ dependencies, etc.:
 `test/index.js` is the main test suite that organises all the individual test cases. After running it,
 and if all goes well, the result should look somewhat similar to this:
 
-![Test output](doc/test2.png)
+![Test output](doc/test3.png)
 
 The code further attempts to comply with the Airbnb-style, which is checked by eslint:
 
